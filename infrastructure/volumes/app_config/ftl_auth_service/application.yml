@@ -1,7 +1,7 @@
 server:
   port: 8080
 
-foogtechlab:
+foodtechlab:
   build:
     version: '@ftl.auth-lib.version@'
   security:
@@ -31,3 +31,33 @@ foogtechlab:
         phone-number-limit: 500
         email-limit: 500
         username-limit: 500
+
+spring:
+  profiles:
+    active: "@spring.profiles.active@"
+  application:
+    name: ftl-auth-service
+  data:
+    mongodb:
+      database: ftl-auth-service
+      auto-index-creation: true
+      host: database
+      port: 27017
+    mvc:
+      throw-exception-if-no-handler-found: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+
+logging:
+   file:
+     name: ./logs/log.log
+
+
+

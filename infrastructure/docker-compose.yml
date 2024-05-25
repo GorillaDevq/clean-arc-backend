@@ -7,9 +7,9 @@ services:
     container_name: "database"
     restart: always
     mem_limit: 1024m
-    command: mngof --bind_ip '*' --config /etc/mongod.conf
+    command: mongod --bind_ip '*' --config /etc/mongod.conf
     ports:
-      - 27017: 2017
+      - 27018:27017
     volumes:
       - ./volumes/mongodb_container/data:/data/db
       - ./volumes/mongodb_container/config/mongod.conf:/etc/mongod.conf
@@ -22,6 +22,6 @@ services:
     depends_on:
       - database
     volumes:
-      - ./volumes/app_config/ftl_auth_servise:/app/config
+      - ./volumes/app_config/ftl_auth_service:/app/config
     ports:
-      - 9090: 8080
+      - 9090:8080
