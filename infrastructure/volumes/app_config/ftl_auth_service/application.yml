@@ -1,0 +1,33 @@
+server:
+  port: 8080
+
+foogtechlab:
+  build:
+    version: '@ftl.auth-lib.version@'
+  security:
+    default-credential:
+      password: cleanArcConnectPassword
+    2fa:
+      sms:
+        code-length: 4
+    jwt:
+      secret: cleanArcBackendExample1234567890
+      access-token:
+        ttl: 900
+      refresh-token:
+        ttl: 155520000
+    secretWord: cleanArcBackendExample1234567890
+  preferences:
+    need-rewrite: true
+    default-confirmation-code-message-webhook-provider:
+      sms:
+        url: http://localhost:8080/not-secure/api/v1/sms/auth-webhook
+    ip-v4-hour-attempt-limit:
+      single-factor-with-confirmation:
+        phone-number-limit: 500
+        email-limit: 500
+        username-limit: 500
+      single-factor-with-password:
+        phone-number-limit: 500
+        email-limit: 500
+        username-limit: 500

@@ -1,0 +1,27 @@
+version: "3.9"
+
+services:
+
+  database:
+    image: "mongo:4.4.6"
+    container_name: "database"
+    restart: always
+    mem_limit: 1024m
+    command: mngof --bind_ip '*' --config /etc/mongod.conf
+    ports:
+      - 27017: 2017
+    volumes:
+      - ./volumes/mongodb_container/data:/data/db
+      - ./volumes/mongodb_container/config/mongod.conf:/etc/mongod.conf
+      - ./volumes/mongodb_container/init-db.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+
+  ftl-auth-service:
+    image: "pocteg/campus-auth:latest"
+    container_name: "ftl-auth-service"
+    restart: always
+    depends_on:
+      - database
+    volumes:
+      - ./volumes/app_config/ftl_auth_servise:/app/config
+    ports:
+      - 9090: 8080
