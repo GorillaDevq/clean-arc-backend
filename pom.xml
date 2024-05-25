@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.campus</groupId>
+    <artifactId>clean-arc</artifactId>
+    <packaging>pom</packaging>
+    <version>${clean.arc.version}</version>
+    <name>suite</name>
+
+    <properties>
+        <clean.arc.version>1.0.0-SNAPSHOT</clean.arc.version>
+
+        <!-- Dependencies version -->
+        <lombok.version>1.18.24</lombok.version>
+        <jackson.version>2.11.4</jackson.version>
+        <mapstruct.version>1.4.2.Final</mapstruct.version>
+        <lombok-mapstruct-binding.version>0.2.0</lombok-mapstruct-binding.version>
+
+        <io.foodtechlab.version>4.0.0</io.foodtechlab.version>
+        <io.foodtechlab.auth.version>4.0.4</io.foodtechlab.auth.version>
+        <rcore.version>1.0.27</rcore.version>
+
+        <spring.boot.version>2.4.3</spring.boot.version>
+        <spring.actuator.version>2.6.2</spring.actuator.version>
+        <spring.cloud.version>3.0.0</spring.cloud.version>
+        <spring.security.version>5.4.5</spring.security.version>
+        <spring.version>5.3.5</spring.version>
+        <springdoc.version>1.6.6</springdoc.version>
+        <openfeign.version>11.7</openfeign.version>
+
+
+        <!-- Build Zone -->
+        <maven.compiler.source>22</maven.compiler.source>
+        <maven.compiler.target>22</maven.compiler.target>
+        <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
+        <maven.source.plugin.version>3.2.1</maven.source.plugin.version>
+        <maven.deploy.plugin.version>2.8.1</maven.deploy.plugin.version>
+        <flatten.maven.plugin.version>1.3.0</flatten.maven.plugin.version>
+        <flatten.mode>bom</flatten.mode>
+    </properties>
+
+    <modules>
+        <module>clean-arc-domain</module>
+        <module>clean-arc-mongo</module>
+        <module>clean-arc-api</module>
+        <module>clean-arc-scheduler</module>
+        <module>clean-arc-application</module>
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- CLean Arc -->
+            <dependency>
+                <groupId>com.campus</groupId>
+                <artifactId>clean-arc-domain</artifactId>
+                <version>${clean.arc.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.campus</groupId>
+                <artifactId>clean-arc-mongo</artifactId>
+                <version>${clean.arc.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.campus</groupId>
+                <artifactId>clean-arc-api</artifactId>
+                <version>${clean.arc.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.campus</groupId>
+                <artifactId>clean-arc-scheduler</artifactId>
+                <version>${clean.arc.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.campus</groupId>
+                <artifactId>clean-arc-application</artifactId>
+                <version>${clean.arc.version}</version>
+            </dependency>
+
+            <!-- RCore -->
+            <dependency>
+                <groupId>com.github.rostislav-maslov.rcore</groupId>
+                <artifactId>rcore-domain-commons</artifactId>
+                <version>${rcore.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.rostislav-maslov.rcore</groupId>
+                <artifactId>rcore-domain-security</artifactId>
+                <version>${rcore.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.rostislav-maslov.rcore</groupId>
+                <artifactId>rcore-rest-api-spring-security</artifactId>
+                <version>${rcore.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.rostislav-maslov.rcore</groupId>
+                <artifactId>rcore-rest-api-commons</artifactId>
+                <version>${rcore.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.rostislav-maslov.rcore</groupId>
+                <artifactId>rcore-rest-api-spring-commons</artifactId>
+                <version>${rcore.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.rostislav-maslov.rcore</groupId>
+                <artifactId>rcore-database-mongo-commons</artifactId>
+                <version>${rcore.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.rostislav-maslov.rcore</groupId>
+                <artifactId>rcore-commons</artifactId>
+                <version>${rcore.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.rostislav-maslov.rcore</groupId>
+                <artifactId>rcore-event-drivers</artifactId>
+                <version>${rcore.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.rostislav-maslov.rcore</groupId>
+                <artifactId>rcore-domain-event</artifactId>
+                <version>${rcore.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.rostislav-maslov.rcore</groupId>
+                <artifactId>rcore-domain-aspect</artifactId>
+                <version>${rcore.version}</version>
+            </dependency>
+
+            <!-- foodtechlab.io libs -->
+            <dependency>
+                <groupId>io.foodtechlab</groupId>
+                <artifactId>common-entities-core</artifactId>
+                <version>${io.foodtechlab.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.foodtechlab</groupId>
+                <artifactId>common-entities-domain</artifactId>
+                <version>${io.foodtechlab.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.foodtechlab</groupId>
+                <artifactId>common-entities-mongo</artifactId>
+                <version>${io.foodtechlab.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.foodtechlab</groupId>
+                <artifactId>api-exception-handler-api</artifactId>
+                <version>${io.foodtechlab.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.foodtechlab</groupId>
+                <artifactId>feign-commons</artifactId>
+                <version>${io.foodtechlab.version}</version>
+            </dependency>
+
+            <!-- FoodTech Lab Service -->
+            <dependency>
+                <groupId>io.foodtechlab</groupId>
+                <artifactId>auth-integration-restapi-feign-credential</artifactId>
+                <version>${io.foodtechlab.auth.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.foodtechlab</groupId>
+                <artifactId>auth-integration-restapi-feign-role</artifactId>
+                <version>${io.foodtechlab.auth.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.foodtechlab</groupId>
+                <artifactId>auth-integration-proxy-api</artifactId>
+                <version>${io.foodtechlab.auth.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.foodtechlab</groupId>
+                <artifactId>auth-integration-restapi-feign-role-access</artifactId>
+                <version>${io.foodtechlab.auth.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.foodtechlab</groupId>
+                <artifactId>auth-integration-restapi-feign-authorization</artifactId>
+                <version>${io.foodtechlab.auth.version}</version>
+            </dependency>
+
+            <!-- Spring Boot -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot</artifactId>
+                <version>${spring.boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-aop</artifactId>
+                <version>${spring.boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter</artifactId>
+                <version>${spring.boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+                <version>${spring.boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-security</artifactId>
+                <version>${spring.boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-autoconfigure</artifactId>
+                <version>${spring.boot.version}</version>
+            </dependency>
+
+            <!-- Spring Actuator -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-actuator</artifactId>
+                <version>${spring.actuator.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-actuator-autoconfigure</artifactId>
+                <version>${spring.actuator.version}</version>
+            </dependency>
+
+            <!-- Spring -->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-beans</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-aspects</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-aop</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-expressions</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-web</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-core</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+
+            <!-- Spring Security -->
+            <dependency>
+                <groupId>org.springframework.security</groupId>
+                <artifactId>spring-security-web</artifactId>
+                <version>${spring.security.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.security</groupId>
+                <artifactId>spring-security-config</artifactId>
+                <version>${spring.security.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.security</groupId>
+                <artifactId>spring-security-crypto</artifactId>
+                <version>${spring.security.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.security</groupId>
+                <artifactId>spring-security-core</artifactId>
+                <version>${spring.security.version}</version>
+            </dependency>
+
+            <!-- Spring Cloud -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-sleuth</artifactId>
+                <version>${spring.cloud.version}</version>
+            </dependency>
+
+            <!-- SpringDOC -->
+            <dependency>
+                <groupId>org.springdoc</groupId>
+                <artifactId>springdoc-openapi-ui</artifactId>
+                <version>${springdoc.version}</version>
+            </dependency>
+
+            <!-- openfeign -->
+            <dependency>
+                <groupId>io.github.openfeign</groupId>
+                <artifactId>feign-core</artifactId>
+                <version>${openfeign.version}</version>
+            </dependency>
+
+            <!-- Other Libs -->
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-core</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-annotations</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-datatype-jsr310</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct</artifactId>
+                <version>${mapstruct.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>flatten-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>${maven.source.plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+            </plugin>
+        </plugins>
+
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>flatten-maven-plugin</artifactId>
+                    <version>${flatten.maven.plugin.version}</version>
+                    <configuration>
+                        <updatePomFile>true</updatePomFile>
+                        <flattenMode>${flatten.mode}</flattenMode>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <id>flatten</id>
+                            <phase>process-resources</phase>
+                            <goals>
+                                <goal>flatten</goal>
+                            </goals>
+                        </execution>
+                        <execution>
+                            <id>flatten.clean</id>
+                            <phase>clean</phase>
+                            <goals>
+                                <goal>clean</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-deploy-plugin</artifactId>
+                    <version>${maven.deploy.plugin.version}</version>
+                    <executions>
+                        <execution>
+                            <id>default-deploy</id>
+                            <phase>none</phase>
+                        </execution>
+                    </executions>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>${maven.compiler.plugin.version}</version>
+                    <configuration>
+                        <source>${maven.compiler.source}</source>
+                        <target>${maven.compiler.target}</target>
+                        <annotationProcessorPaths>
+                            <path>
+                                <groupId>org.mapstruct</groupId>
+                                <artifactId>mapstruct-processor</artifactId>
+                                <version>${mapstruct.version}</version>
+                            </path>
+                            <path>
+                                <groupId>org.projectlombok</groupId>
+                                <artifactId>lombok</artifactId>
+                                <version>${lombok.version}</version>
+                            </path>
+                            <path>
+                                <groupId>org.projectlombok</groupId>
+                                <artifactId>lombok-mapstruct-binding</artifactId>
+                                <version>${lombok-mapstruct-binding.version}</version>
+                            </path>
+                        </annotationProcessorPaths>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+
+    <licenses>
+        <license>
+            <name>MIT license</name>
+            <url>http://www.opensourse.org/licenses/mit-licence.ph</url>
+        </license>
+    </licenses>
+    <developers>
+        <developer>
+            <name>Ivan</name>
+        </developer>
+    </developers>
+
+
+</project>
