@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <parent>
+        <artifactId>clean-arc</artifactId>
+        <groupId>com.campus</groupId>
+        <version>${clean.arc.version}</version>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>clean-arc-api</artifactId>
+    <packaging>jar</packaging>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.campus</groupId>
+            <artifactId>clean-arc-domain</artifactId>
+        </dependency>
+
+        <!-- API -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.github.rostislav-maslov.rcore</groupId>
+            <artifactId>rcore-rest-api-spring-commons</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.github.rostislav-maslov.rcore</groupId>
+            <artifactId>rcore-domain-commons</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.github.rostislav-maslov.rcore</groupId>
+            <artifactId>rcore-rest-api-commons</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.github.rostislav-maslov.rcore</groupId>
+            <artifactId>rcore-domain-security</artifactId>
+        </dependency>
+
+        <!-- Authorisation -->
+        <dependency>
+            <groupId>io.foodtechlab</groupId>
+            <artifactId>api-exception-handler-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.github.rostislav-maslov.rcore</groupId>
+            <artifactId>rcore-rest-api-spring-security</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.foodtechlab</groupId>
+            <artifactId>auth-integration-restapi-feign-role-access</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.foodtechlab</groupId>
+            <artifactId>auth-integration-restapi-feign-authorization</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.foodtechlab</groupId>
+            <artifactId>auth-integration-proxy-api</artifactId>
+        </dependency>
+    </dependencies>
+
+</project>

@@ -8,7 +8,6 @@
     <artifactId>clean-arc</artifactId>
     <packaging>pom</packaging>
     <version>${clean.arc.version}</version>
-    <name>suite</name>
 
     <properties>
         <clean.arc.version>1.0.0-SNAPSHOT</clean.arc.version>
@@ -117,7 +116,7 @@
             </dependency>
             <dependency>
                 <groupId>com.github.rostislav-maslov.rcore</groupId>
-                <artifactId>rcore-event-drivers</artifactId>
+                <artifactId>rcore-event-driven</artifactId>
                 <version>${rcore.version}</version>
             </dependency>
             <dependency>
