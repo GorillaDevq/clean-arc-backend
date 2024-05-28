@@ -6,7 +6,6 @@ import com.rcore.domain.commons.port.CRUDRepository;
 
 import java.util.Optional;
 
-
 public interface AuthorRepository extends CRUDRepository<String, AuthorEntity, AuthorFilters> {
     Optional<AuthorEntity> findByEmail(String email);
     Optional<AuthorEntity> findByCredentialId(String credentialId);

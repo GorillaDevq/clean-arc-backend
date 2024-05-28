@@ -32,7 +32,7 @@ public class ChangePasswordUseCase extends UseCase<ChangePasswordUseCase.InputVa
 
         authorEntity.setUpdatedAt(Instant.now());
         authorRepository.save(authorEntity);
-        return SingleOutput.of(true)
+        return SingleOutput.of(true);
     }
 
     @AllArgsConstructor(staticName = "of")

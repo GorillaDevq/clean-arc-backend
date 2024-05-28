@@ -8,6 +8,7 @@ import com.rcore.domain.commons.usecase.UseCase;
 import com.rcore.domain.commons.usecase.model.SingletonEntityOutputValues;
 import lombok.*;
 import ru.foodtechlab.lib.auth.integration.core.credential.CredentialServiceFacade;
+import ru.foodtechlab.lib.auth.integration.core.credential.exception.CredentialNotFoundException;
 import ru.foodtechlab.lib.auth.integration.core.role.RoleServiceFacade;
 import ru.foodtechlab.lib.auth.integration.core.roleAccess.RoleAccessServiceFacade;
 import ru.foodtechlab.lib.auth.service.facade.credential.dto.requests.CreateCredentialRequest;
@@ -18,7 +19,6 @@ import ru.foodtechlab.lib.auth.service.facade.roleAccess.dto.requests.CreateRole
 import ru.foodtechlab.lib.auth.service.facade.roleAccess.dto.requests.FindRoleAccessWithFiltersRequest;
 import ru.foodtechlab.lib.auth.service.facade.roleAccess.dto.responses.RoleAccessResponse;
 
-import javax.security.auth.login.CredentialNotFoundException;
 import java.time.Instant;
 import java.util.List;
 
