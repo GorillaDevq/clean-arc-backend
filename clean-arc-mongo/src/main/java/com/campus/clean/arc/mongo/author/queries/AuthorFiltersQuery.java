@@ -44,7 +44,7 @@ public class AuthorFiltersQuery extends AbstractExampleQuery {
         }
 
         if (currentCriteria.isEmpty()) return finalCriteria;
-        if (currentCriteria.size() == 1) return currentCriteria.getFirst();
+        if (currentCriteria.size() == 1) return currentCriteria.get(0);
 
         finalCriteria.andOperator(
                 currentCriteria.toArray(
