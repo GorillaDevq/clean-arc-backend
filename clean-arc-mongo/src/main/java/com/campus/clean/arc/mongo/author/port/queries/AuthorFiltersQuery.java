@@ -1,4 +1,4 @@
-package com.campus.clean.arc.mongo.author.queries;
+package com.campus.clean.arc.mongo.author.port.queries;
 
 import com.campus.clean.arc.domain.author.port.filters.AuthorFilters;
 import com.rcore.database.mongo.commons.query.AbstractExampleQuery;
