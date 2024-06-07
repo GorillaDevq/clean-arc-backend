@@ -30,3 +30,4 @@ clean-arc-domain/target
 clean-arc-mongo/target
 clean-arc-scheduler/target
 .flattened-pom.xml
+log.log.2024-06-02.0.gz

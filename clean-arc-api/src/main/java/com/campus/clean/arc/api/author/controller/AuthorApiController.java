@@ -16,7 +16,6 @@ import com.rcore.domain.commons.usecase.model.IdInputValues;
 import com.rcore.rest.api.commons.request.SearchApiRequest;
 import com.rcore.rest.api.commons.response.SearchApiResponse;
 import com.rcore.rest.api.commons.response.SuccessApiResponse;
-import com.rcore.rest.api.commons.routes.BaseRoutes;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;

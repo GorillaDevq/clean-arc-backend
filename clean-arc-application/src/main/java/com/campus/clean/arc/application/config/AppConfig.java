@@ -1,5 +1,8 @@
 package com.campus.clean.arc.application.config;
 
+import com.campus.clean.arc.domain.article.config.ArticleConfig;
+import com.campus.clean.arc.domain.article.port.ArticleIdGenerator;
+import com.campus.clean.arc.domain.article.port.ArticleRepository;
 import com.campus.clean.arc.domain.author.config.AuthorConfig;
 import com.campus.clean.arc.domain.author.port.AuthorIdGenerator;
 import com.campus.clean.arc.domain.author.port.AuthorRepository;
@@ -126,4 +129,10 @@ public class AppConfig {
         );
     }
 
+    @Bean
+    public ArticleConfig articleConfig(
+            ArticleRepository articleRepository,
+            ArticleIdGenerator articleIdGenerator) {
+        return new ArticleConfig(articleRepository, articleIdGenerator);
+    }
 }
